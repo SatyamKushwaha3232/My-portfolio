@@ -1,0 +1,319 @@
+@import "tailwindcss";
+
+/* =========================
+   GLOBAL
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #020617;
+  overflow-x: hidden;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+section {
+  scroll-margin-top: 120px;
+}
+
+/* =========================
+   PREMIUM SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    #22ff88,
+    #16a34a,
+    #22ff88
+  );
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 0 12px #22ff88,
+    0 0 22px #22ff88;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #22ff88;
+
+  box-shadow:
+    0 0 18px #22ff88,
+    0 0 32px #22ff88;
+}
+
+/* =========================
+   TEXT SELECTION
+========================= */
+
+::selection {
+  background: #22ff88;
+  color: black;
+}
+
+/* =========================
+   GRID MOTION
+========================= */
+
+@keyframes gridMove {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(80px);
+  }
+}
+
+.grid-animate {
+  animation: gridMove 16s linear infinite;
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.2;
+  }
+
+  50% {
+    transform: translateY(-45px) scale(1.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.2;
+  }
+}
+
+.particle-animate {
+  animation-name: floatParticle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* =========================
+   DIAGONAL CRACK LIGHTS
+========================= */
+
+@keyframes crackDown {
+  0% {
+    opacity: 0;
+    transform:
+      translate(-80px, -80px)
+      scaleX(0.2);
+  }
+
+  40% {
+    opacity: 0.7;
+  }
+
+  60% {
+    opacity: 1;
+    box-shadow:
+      0 0 10px #22ff88,
+      0 0 20px #22ff88;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(100px, 100px)
+      scaleX(1);
+  }
+}
+
+@keyframes crackUp {
+  0% {
+    opacity: 0;
+    transform:
+      translate(-80px, 80px)
+      scaleX(0.2);
+  }
+
+  40% {
+    opacity: 0.7;
+  }
+
+  60% {
+    opacity: 1;
+    box-shadow:
+      0 0 10px #22ff88,
+      0 0 20px #22ff88;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(100px, -100px)
+      scaleX(1);
+  }
+}
+
+.crack-down {
+  animation: crackDown 5s ease-in-out infinite;
+}
+
+.crack-up {
+  animation: crackUp 5.5s ease-in-out infinite;
+}
+
+/* =========================
+   FLOATING ELEMENTS
+========================= */
+
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+/* =========================
+   GLOW PULSE
+========================= */
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.5;
+    filter: blur(0px);
+  }
+
+  50% {
+    opacity: 1;
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 0.5;
+    filter: blur(0px);
+  }
+}
+
+.glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* =========================
+   SCAN LINE
+========================= */
+
+@keyframes scanMove {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(450%);
+    opacity: 0;
+  }
+}
+
+.scan-line {
+  animation: scanMove 4s linear infinite;
+}
+
+/* =========================
+   SPIN SLOW
+========================= */
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 10s linear infinite;
+}
+
+/* =========================
+   LOGO FONT
+========================= */
+
+.logo-s {
+  font-family:
+    "Brush Script MT",
+    "Segoe Script",
+    cursive;
+
+  transform: skewX(-10deg);
+}
+
+/* =========================
+   GLASS SHINE
+========================= */
+
+.glass-shine::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.08),
+      transparent
+    );
+
+  transform: translateX(-100%);
+  transition: 1s;
+}
+
+.glass-shine:hover::before {
+  transform: translateX(100%);
+}
+
+/* =========================
+   PERFORMANCE
+========================= */
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+}
